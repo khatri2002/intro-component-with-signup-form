@@ -1,0 +1,117 @@
+.main {
+  @apply flex min-h-screen items-center justify-center bg-red bg-center bg-no-repeat;
+  background-image: url("../../assets/images/bg-intro-desktop.png");
+
+  .container {
+    @apply mx-5 my-16 flex flex-col items-center gap-8 sm:mx-12 sm:my-10 md:flex-row lg:mx-24 xl:mx-40 xl:gap-0;
+
+    .textContainer {
+      @apply w-full text-white md:w-1/2;
+
+      h1 {
+        @apply text-center text-3xl font-bold sm:text-4xl md:text-start md:text-5xl;
+      }
+
+      h2 {
+        @apply mt-7 text-center text-sm leading-6 sm:text-base sm:leading-normal md:mt-8 md:text-start;
+      }
+    }
+
+    .formContainer {
+      @apply w-full xl:w-1/2;
+
+      .badgeWrapper {
+        @apply relative;
+
+        .badge {
+          @apply relative block rounded-lg bg-blue py-4 text-center text-sm text-white sm:text-base;
+          font-weight: 200;
+
+          .highlight {
+            @apply mb-1 block font-semibold sm:inline;
+          }
+        }
+
+        &:before {
+          content: "";
+          @apply absolute top-2 h-full w-full rounded-lg bg-black opacity-20;
+        }
+      }
+
+      .formWrapper {
+        @apply relative;
+
+        .form {
+          @apply relative mt-6 space-y-5 rounded-lg bg-white p-6 md:p-10;
+
+          .item {
+            .input {
+              @apply flex items-center rounded-md border transition duration-300 focus-within:border-black;
+
+              input {
+                @apply flex-grow rounded-lg px-4 py-3 text-sm font-medium outline-none sm:px-6 sm:text-base md:px-7 md:py-4;
+              }
+
+              img {
+                @apply invisible mr-0 w-0 opacity-0 transition-all duration-300;
+              }
+            }
+
+            .errorText {
+              @apply mt-2 block text-right text-xs italic text-red;
+            }
+
+            &.error {
+              .input {
+                @apply border-2 border-red;
+
+                img {
+                  @apply visible mr-4 w-5 opacity-100 sm:mr-6 sm:w-auto md:mr-7;
+                }
+              }
+            }
+          }
+
+          .footer {
+            .btnWrapper {
+              @apply relative;
+
+              .btn {
+                @apply relative w-full rounded-md bg-green py-3 font-medium uppercase text-white transition duration-300 disabled:bg-gray-400;
+
+                &:hover:enabled {
+                  background-color: #52e0a2;
+                }
+              }
+
+              &::before {
+                content: "";
+                @apply absolute top-1 h-full w-full rounded-md opacity-90;
+                background-color: #268c60;
+              }
+
+              &:has(.btn:disabled) {
+                &::before {
+                  @apply bg-gray-500;
+                }
+              }
+            }
+
+            .desc {
+              @apply mt-4 block text-center text-xs text-grayish-blue;
+
+              .highlight {
+                @apply font-semibold text-red;
+              }
+            }
+          }
+        }
+
+        &::before {
+          content: "";
+          @apply absolute top-2 h-full w-full rounded-lg bg-black opacity-20;
+        }
+      }
+    }
+  }
+}
